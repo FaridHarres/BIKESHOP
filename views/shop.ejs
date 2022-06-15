@@ -51,16 +51,17 @@
         
         <th scope="row"><%= i+1 %></th>
         <td><img src="<%= dataCardBike[i].image %>" style="width:12rem" alt=""></td>
-        <td><%= dataCardBike[i].nom %></td>
+        <td><%= dataCardBike[i].name %></td>
         <td>
-          <form>
-              <input type="number" name="quantity" value="<%= dataCardBike[i].quantity %>" class="m-2"> 
+          <form action="/update-shop" method="post">
+              <input type="number" name="quantity" value="<%= dataCardBike[i].quantity %>" class="m-2" min="1"> 
               <button class="btn btn-outline-info btn-sm" name="button"><i class="fas fa-sync-alt"></i></button>
+              <input type="hidden" name="index" value="<%= i %>">
           </form>
         </td>
-        <td><%= dataCardBike[i].prix %></td>
-        <td><%= dataCardBike[i].prix * dataCardBike[i].quantity%></td>
-        <td><button type="button" class="btn btn-outline-info"><i class="fa-solid fa-trash "></i></button></td>
+        <td><%= dataCardBike[i].prix %> €</td>
+        <td><%= dataCardBike[i].prix * dataCardBike[i].quantity%> €</td>
+        <td><a type="button" href="/delete?index=<%= i %>&name=<%= dataCardBike[i].name%>&prix=<%= dataCardBike[i].prix%>&quantity=<%= dataCardBike[i].quantity%>" class="btn btn-outline-info"><i class="fa-solid fa-trash "></i></a></td>
       </tr>
       <% 
       }
@@ -72,7 +73,7 @@
         <td colspan="4"></td>
         <td >TOTAL</td>
         <td colspan="2">
-          <%= totalCmd %>
+          <%= totalCmd %> €
         </td>
       </tr>
 

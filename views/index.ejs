@@ -47,7 +47,7 @@
             <h5 class="card-title"><%= dataBike[i].nom%> </h5>
             <div class="d-flex justify-content-center align-items-center mt-5">
               <p class="card-text p-3 m-1"> <%= dataBike[i].prix%> €</p>
-              <a href="shop" class="btn btn-outline-primary">buy</a>
+              <a href="shop?image=<%= dataBike[i].image %>&name=<%= dataBike[i].nom%>&prix=<%= dataBike[i].prix%>&quantity=<%= dataBike[i].quantity%>" class="btn btn-outline-primary">buy</a>
             </div>           
           </div>
         </div>

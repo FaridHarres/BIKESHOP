@@ -30,6 +30,14 @@
     <li class="breadcrumb-item active" aria-current="page">BASKET</li>
   </ol>
 </nav>
+
+<%
+if(dataCardBike.length < 1){
+%>
+ <h5 class="no-article">Votre panier est vide</h5>
+<%
+} else {
+%>
   <h1>Basket</h1>
   <table class="table bg-light">
     <thead>
@@ -44,7 +52,9 @@
       </tr>
     </thead>
     <tbody>
-      <% for (i=0; i<dataCardBike.length; i++)
+      <%
+      var total = 0
+       for (i=0; i<dataCardBike.length; i++)
         {
       %>
       <tr>
@@ -72,8 +82,7 @@
       <tr style="border:none">
         <td colspan="4"></td>
         <td >TOTAL</td>
-        <td colspan="2">
-          <%= totalCmd %> €
+        <td colspan="2"><%= totalCmd %> €
         </td>
       </tr>
 
@@ -82,7 +91,9 @@
         <td style="border:none"><button type="button" class="btn btn-outline-info mt-5" >CHECKOUT</button></td>
       </tr>
     </tfoot>
-
+    <%
+}
+%>
   </table>
 
 
